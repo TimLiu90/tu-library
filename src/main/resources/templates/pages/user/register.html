@@ -82,14 +82,14 @@
                 <input class="form-control" type="password" required="" placeholder="Confirm Password" th:field="*{passwordAgain}" />
                 <label>Confirm Password</label>
             </div>
-            <div class="form-group mb-3">
-                <div class="checkbox checkbox-info">
-                    <label>
-                        <input type="checkbox" name="terms" th:value="${terms}" /> <span class="label-text">I agree to all <a href="#">Terms &amp; Conditions</a></span>
-                    </label>
-                </div>
-                <!-- /.checkbox -->
-            </div>
+            <!--<div class="form-group mb-3">-->
+                <!--<div class="checkbox">-->
+                    <!--<label>-->
+                        <!--<input type="checkbox" id="terms" name="terms" th:field="*{terms}" /> <span class="label-text">I agree to all <a href="#">Terms &amp; Conditions</a></span>-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.checkbox &ndash;&gt;-->
+            <!--</div>-->
             <div class="form-group text-center no-gutters mb-5">
                 <div class="col-12">
                     <button class="btn btn-info btn-lg btn-block text-uppercase ripple" type="submit">Sign Up</button>
@@ -99,7 +99,7 @@
         <!-- /.form-material -->
         <footer class="col-sm-12 text-center">
             <hr />
-            <p>Already have an account? <a href="page-login.html" class="text-primary m-l-5"><b>Log In</b></a>
+            <p>Already have an account? <a th:href="@{/login}" class="text-primary m-l-5"><b>Log In</b></a>
             </p>
         </footer>
     </div>
