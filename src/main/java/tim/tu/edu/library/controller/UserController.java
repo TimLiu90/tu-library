@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import tim.tu.edu.library.domain.Role;
 import tim.tu.edu.library.domain.User;
 import tim.tu.edu.library.dto.UserDto;
+import tim.tu.edu.library.service.RoleService;
 import tim.tu.edu.library.service.UserService;
 
 import javax.validation.Valid;
@@ -23,6 +25,8 @@ public class UserController {
     UserService userService;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    RoleService roleService;
 
 
     @GetMapping(value = "/login")
@@ -60,7 +64,7 @@ public class UserController {
      */
     @PostMapping(value = "/register")
     public String registerUser(ModelMap modelMap,
-                               @RequestParam("terms") String terms,
+//                               @RequestParam("terms") String terms,
                                @ModelAttribute("user") @Valid UserDto userDto,
                                BindingResult bindingResult){
 
@@ -73,6 +77,9 @@ public class UserController {
         user.setUsername(userDto.getUsername());
         user.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         user.setEmail(userDto.getEmail());
+        user.setActive(true);
+        Role role = roleService.findByRole("ROLE_ADMIN");
+        user.setRole(role);
 
         userService.saveUser(user);
 

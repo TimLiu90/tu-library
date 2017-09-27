@@ -61,17 +61,17 @@
             </a>
         </div>
         <!-- /.navbar-header -->
-        <form class="form-material">
+        <form class="form-material" th:action="@{/login}" method="post">
             <div class="form-group">
-                <input type="email" placeholder="johndoe@site.com" class="form-control form-control-line" name="example-email" id="example-email" />
-                <label for="example-email">Email</label>
+                <input type="text" placeholder="username" class="form-control form-control-line" name="username" id="username" />
+                <label for="username">Username</label>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="password" class="form-control form-control-line" />
+                <input type="password" placeholder="password" class="form-control form-control-line" name="password" />
                 <label>Password</label>
             </div>
             <div class="form-group">
-                <button class="btn btn-block btn-lg btn-color-scheme ripple" type="button">Login</button>
+                <button class="btn btn-block btn-lg btn-color-scheme ripple" type="submit">Login</button>
             </div>
             <div class="form-group no-gutters mb-0">
                 <div class="col-md-12 d-flex">
